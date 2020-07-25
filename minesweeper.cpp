@@ -23,32 +23,28 @@ void getDifficultyLevel()
 	cout << "m - medium" << endl;
 	cout << "h - hard" << endl;
 	cin >> DIFFICULTY_LEVEL;
-	if (DIFFICULTY_LEVEL == 'e')
-	{
+	if (DIFFICULTY_LEVEL == 'e'){
 		SIZE_OF_BOARD = 10;
 		MINE_COUNT = 10;
 		LENGTH_OF_BOARD = SIZE_OF_BOARD*SIZE_OF_BOARD;
 		visited_till_now = 0;
 		max_visitable = SIZE_OF_BOARD*SIZE_OF_BOARD - MINE_COUNT;
 	}
-	else if (DIFFICULTY_LEVEL == 'm')
-	{
+	else if (DIFFICULTY_LEVEL == 'm'){
 		SIZE_OF_BOARD = 18;
 		LENGTH_OF_BOARD = SIZE_OF_BOARD*SIZE_OF_BOARD;
 		MINE_COUNT = 40;
 		visited_till_now = 0;
 		max_visitable = SIZE_OF_BOARD*SIZE_OF_BOARD - MINE_COUNT;
 	}
-	else if (DIFFICULTY_LEVEL == 'h')
-	{
+	else if (DIFFICULTY_LEVEL == 'h'){
 		SIZE_OF_BOARD = 24;
 		visited_till_now = 0;
 		LENGTH_OF_BOARD = SIZE_OF_BOARD*SIZE_OF_BOARD;
 		max_visitable = SIZE_OF_BOARD*SIZE_OF_BOARD - MINE_COUNT;
 		MINE_COUNT = 99;
 	}
-	else 
-	{
+	else {
 		cout << "Please enter a valid Difficulty Level.";
 		getDifficultyLevel();
 	}
@@ -58,16 +54,13 @@ void printBoardCondition()
 {
 	cout << "PRESENT BOARD CONDITION" << endl << "::::::" << endl;
 	cout << "   ";
-	for (int i=0; i<SIZE_OF_BOARD; i++)
-	{
+	for (int i=0; i<SIZE_OF_BOARD; i++){
 		cout << i%10  << " ";
 	}
 	cout << endl;
-	for (int i=0; i<SIZE_OF_BOARD ; i++)
-	{
+	for (int i=0; i<SIZE_OF_BOARD ; i++){
 		cout << i%10 << "  ";
-		for (int j=0 ; j<SIZE_OF_BOARD; j++)
-		{
+		for (int j=0 ; j<SIZE_OF_BOARD; j++){
 			cout << *(realCondition + i*SIZE_OF_BOARD + j) << " ";
 		}
 		cout << endl;
@@ -78,16 +71,13 @@ void printPlayerGameScreen()
 {
 	cout << "PLAYER GAME SCREEN" << endl << "::::::" << endl;
 	cout << "   ";
-	for (int i=0; i<SIZE_OF_BOARD; i++)
-	{
+	for (int i=0; i<SIZE_OF_BOARD; i++){
 		cout << i%10  << " ";
 	}
 	cout << endl;
-	for (int i=0; i<SIZE_OF_BOARD ; i++)
-	{
+	for (int i=0; i<SIZE_OF_BOARD ; i++){
 		cout << i%10 << "  ";
-		for (int j=0 ; j<SIZE_OF_BOARD; j++)
-		{
+		for (int j=0 ; j<SIZE_OF_BOARD; j++){
 			cout << *(playerCondition + i*SIZE_OF_BOARD + j) << " ";
 		}
 		cout << endl;
@@ -99,8 +89,7 @@ void ClickOnSquare()
 	//click is between 0 and SIZE_OF_BOARD-1
 	cout << "Enter Your Click :: \"row col f/c\" "<< endl;
 	cin >> currentClickRow >>currentClickCol >> currentClickRL;
-	if (currentClickRow >= SIZE_OF_BOARD || currentClickCol >= SIZE_OF_BOARD || currentClickRow <0 || currentClickCol <0 || (currentClickRL != 'f' && currentClickRL != 'c'))
-	{
+	if (currentClickRow >= SIZE_OF_BOARD || currentClickCol >= SIZE_OF_BOARD || currentClickRow <0 || currentClickCol <0 || (currentClickRL != 'f' && currentClickRL != 'c')){
 		cout << "WRONG CLICK" << endl;
 		ClickOnSquare();
 	}
